@@ -1,0 +1,28 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: user-management-mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: meu_app
+    volumes:
+      - mongo-data:/data/db
+
+  api:
+    build: .
+    container_name: user-management-api
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      MONGO_URI: mongodb://admin:admin123@mongo:27017/meu_app?authSource=admin
+      JWT_SECRET: minha-chave-secreta-aqui
+    command: sh -c "bun src/seed.ts && bun src/index.ts"
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:
