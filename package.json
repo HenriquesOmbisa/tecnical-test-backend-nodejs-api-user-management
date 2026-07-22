@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "class-validator": "^0.15.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.8.0",
+    "reflect-metadata": "^0.2.2",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1",
+    "tsyringe": "^4.10.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^26.1.1",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
+    "jsonwebtoken": "^9.0.3",
+    "mogoose": "^0.0.1-security",
+    "zod": "^4.4.3"
+  },
+  "scripts": {
+    "start": "node index.ts",
+    "dev": "bun --watch src/index.ts",
+    "seed": "bun src/seed.ts"
+  },
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
