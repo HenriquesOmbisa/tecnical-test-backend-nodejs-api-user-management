@@ -99,14 +99,16 @@ JWT_SECRET=minha-chave-secreta-aqui
 # Instalar dependencias
 npm install
 
-# Com Bun
-bun install
-
-# Iniciar servidor
-bun run dev
+# Iniciar servidor (desenvolvimento com hot reload)
+npm run dev
 
 # Seed de dados iniciais (Luanda, Hoji Ya Henda e admin)
 # Admin criado: admin@email.com / admin123
+npm run seed
+
+# Ou com Bun (mais rapido)
+bun install
+bun run dev
 bun run seed
 ```
 
